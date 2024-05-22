@@ -1,0 +1,102 @@
+#3
+import ast
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+'''
+Write the function list_oper that takes two list as input.
+
+Function should return a string after performing the operations specified below
+ - Check for the squares and cubes of elements in list1 is present in list2
+ - Return "Squares and Cubes are present" if squares and cubes of all elements in list1 are present in list2.
+ - Return "Squares are only present" if squares of all elements in list1 are only present in list2.
+ - Return "Cubes are only present" if cubes of all the elements in list1 are only present in list2.
+ - Return "No such pattern is present" if there are squares and cubes of any element in list1 is not present in list2
+'''
+def list_oper(list1,list2):
+    allSquares=True
+    allCubes=True
+    for i in list1:
+        if i*i in list2:
+            continue
+        else:
+            allSquares=False
+    for i in list1:
+        if i*i*i in list2:
+            continue
+        else:
+            allCubes=False
+    if(allCubes or allSquares):
+        if(allCubes and allSquares):
+            return "Squares and Cubes are present"
+        if(allCubes==True and allSquares==False):
+            return "Cubes are only present"
+        else:
+            return "Squares are only present"
+    else:
+        return "No such pattern is present"
+
+
+'''
+Write the function amstrong which takes two numbers(num1,num2) as input. Function should return the list of amstrong numbers between num1 and num2
+
+Example : [0,1,..]
+'''
+
+def amstrong(num1,num2):
+    arm_list=[]
+    for i in range(num1,num2+1):
+        arm=0
+        for j in str(i):
+            arm+=pow(int(j),len(str(i)))
+            if(arm==i):
+                arm_list.append(i)
+    arm_list=sorted(list(set(arm_list)))
+    return arm_list
+
+
+'''
+Write the function string_oper which takes a string as input and return another string after removing words that have characters repeated
+
+Input : "This is an example"
+Output : "This is an"
+'''
+def string_oper(Input):
+    Output=""
+    list2=[]
+    list1=Input.split(" ")
+    for i in list1:
+        for j in i:
+            if(i.lower().count(j.lower())>1):
+                break
+        else:
+            list2.append(i)
+    
+    Output=" ".join(list2)
+    return Output
+
+
+'''
+Write a function string_reverse which takes a string as input and return another string with each word in reversed order.
+
+Example : "START OF THE PROJECT"
+Output :  "TRATS FO EHT TCEJORP"
+'''
+def string_reverse(Input):
+    inputList=Input.split(" ")
+    outputList=[]
+    output=""
+    for i in inputList:
+        outputList.append(i[::-1])
+    output=" ".join(outputList)
+    return output
+
+if __name__=='__main__':
+    list1 = ast.literal_eval(input())
+    list2 = ast.literal_eval(input())
+    num1 = ast.literal_eval(input())
+    num2 = ast.literal_eval(input())
+    string1 = input()
+    string2 = input()
+    print(list_oper(list1,list2))
+    print(amstrong(num1,num2))
+    print(string_oper(string1))
+    print(string_reverse(string2))

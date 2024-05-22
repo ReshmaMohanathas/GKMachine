@@ -1,0 +1,109 @@
+#2
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+import re
+def data_oper(string1,string2):
+    '''
+    Split the string string1 with whitespace as delimiter
+    Remove the words that contain characters that are not alphabets
+    Remove the words whose length is less than 3
+    Convert first letter of each word in to Upper case
+    Store it in variable list1
+    Type of list1 - List
+    '''
+    
+    list1 = []
+    temp1=string1.split(" ")
+    for i in temp1:
+        if(len(i)>=3 and i.isalpha()):
+            list1.append(i.capitalize())
+    '''
+    Split the string string2 with whitespace as delimiter
+    Remove the words that contain characters that are not alphabets
+    Remove the words whose length is less than 3
+    Convert first letter of each word in to Upper case
+    Store it in variable list2
+    Type of list2 - List
+    '''
+    list2 = []
+    temp2=string2.split(" ")
+    for i in temp2:
+        if(len(i)>=3 and i.isalpha()):
+            list2.append(i.capitalize())
+    
+    '''
+    Concatinate the lists list1,list2 and store it in variable list3
+    Type of list3 - List
+    '''
+    
+    list3 = []
+    for i in list1:
+        list3.append(i)
+    for i in list2:
+        list3.append(i)
+        
+    
+    '''
+    Find the count of each word in the list list3 and store it in variable count_dictionary
+    Type of count_dictionary - Dictionary
+    Keys have to be words
+    Dictionary must be ordered based on Keys
+    '''
+    count_dictionary = {}
+    for i in list3:
+        count_dictionary[i]=list3.count(i)
+    myKeys = list(count_dictionary.keys())
+    myKeys.sort()
+    count_dictionary = {i: count_dictionary[i] for i in myKeys}
+    '''
+    Find the unique words from words of list3 and store it in variable list3_uni
+    Type of list3_uni - list
+    list3_uni must be sorted in ascending order
+    '''
+    
+    
+    list3_uni=sorted(list(set(list3)))
+    
+    '''
+    Find the common words in list1,list2 and store it in variable common_tuple
+    Type of common_tuple - tuple
+    Words have to unique and sorted in ascending order
+    If there are no common words in list1,list2 store an empty tuple
+    '''
+    common_list=[]
+    common_tuple = ()
+    for i in list1:
+        for j in list2:
+            if(i==j):
+                common_list.append(i)
+    common_list=sorted(list(set(common_list)))
+    common_tuple=tuple(common_list)
+    
+    
+    '''
+    Find the words of list3 that ends with 's' and store it in variable ends_with
+    Type of ends_with - tuple
+    Words have to be unique and sorted in ascending order
+    If there are no words in list3 that ends with 's', store an empty tuple
+    '''
+    
+    ends_list=[]
+    ends_with = ()
+    for i in list3:
+        if i[-1]=="s":
+            ends_list.append(i)
+    ends_list=sorted(list(set(ends_list)))
+    ends_with=tuple(ends_list)
+            
+    
+
+    
+    print(list3)
+    print(count_dictionary)
+    print(list3_uni)
+    print(common_tuple)
+    print(ends_with)
+
+if __name__=='__main__':
+    string1 = input()
+    string2 = input()
+    data_oper(string1,string2)

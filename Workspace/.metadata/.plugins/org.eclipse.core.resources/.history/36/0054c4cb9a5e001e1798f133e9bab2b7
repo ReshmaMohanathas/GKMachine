@@ -1,0 +1,34 @@
+package com.example.HandsonSpring.model;
+
+import jakarta.persistence.Entity;
+
+@Entity
+public class User {
+	long id;
+	String name;
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	@Override
+	public String toString() {
+		return "user [id=" + id + ", name=" + name + "]";
+	}
+	public User(long id, String name) {
+		super();
+		this.id = id;
+		this.name = name;
+	}
+	public User() {
+		// TODO Auto-generated constructor stub
+	}
+	
+}

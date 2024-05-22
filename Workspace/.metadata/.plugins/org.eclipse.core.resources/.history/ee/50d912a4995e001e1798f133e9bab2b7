@@ -1,0 +1,18 @@
+//package com.example.HandsonSpring.JWT;
+//
+//import org.springframework.boot.web.servlet.FilterRegistrationBean;
+//import org.springframework.context.annotation.Bean;
+//import org.springframework.context.annotation.Configuration;
+//
+//
+//@Configuration
+//public class filterConfig {
+//	@Bean
+//	public FilterRegisterationBean jwtFilter() {
+//	FilterRegistrationBean filter=new FilterRegistrationBean<>();
+//	filter.setFilter(new Jwt);
+//	
+//	
+//	return filter;
+//	}
+//}

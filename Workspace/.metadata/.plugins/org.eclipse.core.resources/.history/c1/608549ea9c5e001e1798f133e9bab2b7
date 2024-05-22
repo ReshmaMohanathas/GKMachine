@@ -1,0 +1,8 @@
+spring.security.user.name=reshma
+spring.security.user.password=reshma
+server.port=9090
+spring.datasource.url=jdbc:h2:mem:Resh
+spring.datasource.username=Reshma
+#spring.datasource.password=Reshma
+spring.jpa.hibernate.ddl-auto = update
+

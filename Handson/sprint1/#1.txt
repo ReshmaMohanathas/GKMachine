@@ -1,0 +1,80 @@
+#1
+import ast
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+import ast
+
+def numbers(num1,num2,num3,num4):
+    
+    '''
+    Find the sum of all the numbers and store it in variable sum_of_numbers
+    '''
+    
+    
+    sum_of_numbers = num1+num2+num3+num4
+    
+    
+    '''
+    Find the sum of float numbers among the numbers and store it in variable sum_of_float_numbers
+    '''
+    
+    
+    num=[num1,num2,num3,num4]
+    sum_of_float_numbers = 0
+    for i in num:
+        if(isinstance(i,float)):
+            sum_of_float_numbers+=i  
+    
+    
+    '''
+    Find the smallest integer number among the numbers and store it in variable min_number
+    '''
+    
+    
+    temp=[]
+    for i in num:
+        if(isinstance(i,int)):
+            temp.append(i)
+    min_number = min(temp)
+    
+    '''
+    Find the count of prime numbers among the numbers and store it in variable prime_count
+    '''
+    
+    prime_numbers=[]
+    prime_count = 0
+    Flag=False
+    for i in num:
+        if i>1 and type(i)==int and i!=2:
+            for j in range(2, i):
+                if (i % j) == 0:
+                    break
+            else:
+                prime_numbers.append(i) 
+        elif(i==2):
+            prime_numbers.append(i)
+    prime_count=len(prime_numbers)
+    
+    '''
+    Check for zeros. If there are zeros present among the numbers, store True else store False in the variable zero_check
+    '''
+    
+    zero_check = False
+    for i in num:
+        if i==0:
+            zero_check=True 
+ 
+
+    print(sum_of_numbers)
+    print(sum_of_float_numbers)
+    print(min_number)
+    print(prime_count)
+    print(zero_check)
+    
+   
+    
+if __name__=='__main__':
+    num1 = ast.literal_eval(input())
+    num2 = ast.literal_eval(input())
+    num3 = ast.literal_eval(input())
+    num4 = ast.literal_eval(input())
+    numbers(num1,num2,num3,num4)

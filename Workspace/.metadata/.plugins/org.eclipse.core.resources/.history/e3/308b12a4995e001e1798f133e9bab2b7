@@ -1,0 +1,6 @@
+package com.example.HandsonSpring.JWT;
+
+public class JwtTokenGenrator {
+	String secret ="secret";
+//	public Map<String,String> generateToken(User)
+}
